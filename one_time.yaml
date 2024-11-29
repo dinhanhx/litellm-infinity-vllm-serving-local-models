@@ -1,4 +1,4 @@
-name: download_models_for_maird
+name: no_proxy_maird
 services:
     vllm-openai:
         runtime: nvidia
