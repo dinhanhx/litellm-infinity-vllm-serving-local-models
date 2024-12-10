@@ -26,11 +26,7 @@ You need docker, nvidia runtime for docker, and docker compose. The setup varies
 Because downloading model weights happens only once and can take very long time, we need to run some docker images first, 
 
 ```bash
-docker compose -f one_time.yaml up
-```
-
-```bash
-docker compose -f one_time.yaml down
+HF_HOME=${PWD}/.cache/huggingface huggingface-cli download your_model_name 
 ```
 
 Read `compose.yaml`, and other config files before running.
