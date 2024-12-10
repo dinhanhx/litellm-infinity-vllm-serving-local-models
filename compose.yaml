@@ -23,7 +23,7 @@ services:
           start_period: 60s
           interval: 30s
           timeout: 10s
-          retries: 2
+          retries: 10
     infinity:
         deploy:
             resources:
@@ -44,7 +44,7 @@ services:
           start_period: 60s
           interval: 30s
           timeout: 10s
-          retries: 5
+          retries: 10
     litellm:
         volumes:
             - ${PWD}/litellm/config.yaml:/app/config.yaml
