@@ -1,24 +1,24 @@
 model_list:
   - model_name: Llama-3.2-1B-Instruct
     litellm_params:
-      model: hosted_vllm/Llama-3.2-1B-Instruct
+      model: hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
       api_base: http://vllm-openai:8000/v1
       api_key: empty
   - model_name: jina-embeddings-v3
     litellm_params:
       model: openai/jinaai/jina-embeddings-v3
-      api_base: http://infinity:7997/v2
+      api_base: http://infinity-embedding:7997/v1
       api_key: empty
   - model_name: jina-reranker-v2-base-multilingual
     litellm_params:
       model: cohere/jinaai/jina-reranker-v2-base-multilingual
-      api_base: http://infinity:7997/
+      api_base: http://infinity-rerank:7997/v2
       api_key: empty
 
 general_settings:
   pass_through_endpoints:
     - path: "/v2/rerank"
-      target: "http://infinity:7997/v2/rerank"
+      target: "http://infinity-rerank:7997/v2/rerank"
       headers:
         Authorization: "bearer empty"
         content-type: application/json

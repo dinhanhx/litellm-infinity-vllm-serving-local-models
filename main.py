@@ -4,9 +4,10 @@ from openai import OpenAI
 text = "Hello there!"
 list_texts = ["Hello there!", "How are you?", "How do you do?"]
 
-base_url = "http://localhost:8793"
+base_url = "http://localhost:8800"
+api_key = "empty"
 # OpenAI
-openai_client = OpenAI(api_key="empty", base_url=base_url)
+openai_client = OpenAI(api_key=api_key, base_url=base_url)
 embeddings = openai_client.embeddings.create(
     input=list_texts, model="jina-embeddings-v3"
 ).data
@@ -22,7 +23,7 @@ completion = openai_client.chat.completions.create(
 print(completion.choices[0].message.content)
 
 # Cohere
-cohere_client = Cohere(api_key="empty", base_url=base_url)
+cohere_client = Cohere(api_key=api_key, base_url=base_url)
 rerank_results = cohere_client.rerank(
     query=text,
     documents=list_texts,
